@@ -2,6 +2,8 @@ package com.gildedrose.items;
 
 public abstract class Item {
 
+    public static final int MAX_QUALITY = 50;
+
     private String name;
 
     private int sellIn;
@@ -19,7 +21,8 @@ public abstract class Item {
     }
 
     public void setQuality(int quality) {
-        this.quality = Math.min(quality, 50);
+
+        this.quality = Math.min(quality, MAX_QUALITY);
     }
 
     public String getName() {

@@ -9,7 +9,9 @@ public class ABItem extends Item {
     @Override
     public void updateInformation() {
         setQuality(getQuality() + 1);
+
         setSellIn(getSellIn() - 1);
+
         if (isOverdueItem()) {
             setQuality(getQuality() + 1);
         }
