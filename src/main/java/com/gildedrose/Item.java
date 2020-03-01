@@ -1,29 +1,16 @@
 package com.gildedrose;
 
-public class Item {
+public abstract class Item {
 
-    private String name;
+    protected String name;
 
-    private int sellIn;
+    protected int sellIn;
 
-    private int quality;
+    protected int quality;
 
     public Item(String name, int sellIn, int quality) {
-        this.setName(name);
-        this.setSellIn(sellIn);
-        this.quality = quality;
-    }
-
-    @Override
-    public String toString() {
-        return this.getName() + ", " + this.getSellIn() + ", " + this.quality;
-    }
-
-    public int getQuality() {
-        return quality;
-    }
-
-    void setQuality(int quality) {
+        this.name = name;
+        this.sellIn = sellIn;
         this.quality = quality;
     }
 
@@ -31,15 +18,22 @@ public class Item {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public int getSellIn() {
         return sellIn;
     }
 
-    public void setSellIn(int sellIn) {
-        this.sellIn = sellIn;
+    public int getQuality() {
+        return quality;
+    }
+
+    public void updateInformation() { }
+
+    protected boolean isOverdueItem() {
+        return sellIn < 0;
+    }
+
+    @Override
+    public String toString() {
+        return name + ", " + sellIn + ", " + quality;
     }
 }

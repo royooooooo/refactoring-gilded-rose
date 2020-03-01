@@ -20,11 +20,8 @@ package com.gildedrose;
 
 // SHR
 // quality和sellIn不变
-class GildedRose {
 
-    public static final String AgedBrie = "Aged Brie";
-    public static final String BPTC = "Backstage passes to a TAFKAL80ETC concert";
-    public final String SHR = "Sulfuras, Hand of Ragnaros";
+class GildedRose {
 
     Item[] items;
 
@@ -34,65 +31,8 @@ class GildedRose {
 
     public void update_quality() {
         for (Item item : items) {
-            switch (item.getName()) {
-                case AgedBrie:
-                    updateItemInformationForAgedBrie(item);
-                    break;
-                case BPTC:
-                    updateItemInformationForBPTC(item);
-                    break;
-                case SHR:
-                    break;
-                default:
-                    updateItemInformationForCommon(item);
-                    break;
-            }
+            item.updateInformation();
         }
-    }
-
-    private void updateItemInformationForCommon(Item item) {
-        int quality = item.getQuality();
-        int sellIn = item.getSellIn();
-        quality -= 1;
-        sellIn -= 1;
-        if (isOverdueItem(sellIn)) {
-            quality -= 1;
-        }
-        item.setQuality(Math.min(quality, 50));
-        item.setSellIn(sellIn);
-    }
-
-    private void updateItemInformationForBPTC(Item item) {
-        int quality = item.getQuality();
-        int sellIn = item.getSellIn();
-        quality += 1;
-        if (sellIn < 6) {
-            quality += 2;
-        } else if (sellIn < 11) {
-            quality += 1;
-        }
-        sellIn -= 1;
-        if (sellIn < 0) {
-            quality = 0;
-        }
-        item.setQuality(Math.min(quality, 50));
-        item.setSellIn(sellIn);
-    }
-
-    private void updateItemInformationForAgedBrie(Item item) {
-        int quality = item.getQuality();
-        int sellIn = item.getSellIn();
-        quality += 1;
-        sellIn -= 1;
-        if (sellIn < 0) {
-            quality += 1;
-        }
-        item.setQuality(Math.min(quality, 50));
-        item.setSellIn(sellIn);
-    }
-
-    private boolean isOverdueItem(int sellIn) {
-        return sellIn < 0;
     }
 
 }

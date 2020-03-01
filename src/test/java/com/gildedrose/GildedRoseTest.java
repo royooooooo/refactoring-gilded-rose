@@ -10,7 +10,7 @@ public class GildedRoseTest {
 
     @Test
     public void foo() {
-        Item[] items = new Item[]{new Item("foo", 1, 5)};
+        Item[] items = new Item[]{ItemFactory.createItem("foo", 1, 5)};
         GildedRose app = new GildedRose(items);
         app.update_quality();
         assertEquals("foo", app.items[0].getName());
