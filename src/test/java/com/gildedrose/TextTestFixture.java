@@ -1,5 +1,7 @@
 package com.gildedrose;
 
+import com.gildedrose.items.Item;
+
 public class TextTestFixture {
 
     public static String getCorrectInformationByDifferentDays(int days) {

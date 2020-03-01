@@ -1,5 +1,11 @@
 package com.gildedrose;
 
+import com.gildedrose.items.AgedBrieItem;
+import com.gildedrose.items.BPTCItem;
+import com.gildedrose.items.CommonItem;
+import com.gildedrose.items.Item;
+import com.gildedrose.items.SHRItem;
+
 public class ItemFactory {
 
     public static final String AgedBrie = "Aged Brie";

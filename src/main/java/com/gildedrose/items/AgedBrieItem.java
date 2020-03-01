@@ -1,17 +1,17 @@
-package com.gildedrose;
+package com.gildedrose.items;
 
-public class CommonItem extends Item {
+public class AgedBrieItem extends Item {
 
-    public CommonItem(String name, int sellIn, int quality) {
+    public AgedBrieItem(String name, int sellIn, int quality) {
         super(name, sellIn, quality);
     }
 
     @Override
     public void updateInformation() {
-        quality -= 1;
+        quality += 1;
         sellIn -= 1;
         if (isOverdueItem()) {
-            quality -= 1;
+            quality += 1;
         }
         quality = Math.min(quality, 50);
     }
