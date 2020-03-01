@@ -21,6 +21,8 @@ package com.gildedrose;
 // SHR
 // quality和sellIn不变
 
+import java.util.Arrays;
+
 class GildedRose {
 
     Item[] items;
@@ -30,9 +32,7 @@ class GildedRose {
     }
 
     public void update_quality() {
-        for (Item item : items) {
-            item.updateInformation();
-        }
+        Arrays.stream(items).forEach(Item::updateInformation);
     }
 
 }
