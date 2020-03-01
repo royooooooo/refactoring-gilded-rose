@@ -8,16 +8,16 @@ public class BPTCItem extends Item {
 
     @Override
     public void updateInformation() {
-        quality += 1;
-        if (sellIn < 6) {
-            quality += 2;
-        } else if (sellIn < 11) {
-            quality += 1;
+        setQuality(getQuality() + 1);
+        if (getSellIn() < 11) {
+            setQuality(getQuality() + 1);
         }
-        sellIn -= 1;
+        if (getSellIn() < 6) {
+            setQuality(getQuality() + 1);
+        }
+        setSellIn(getSellIn() - 1);
         if (isOverdueItem()) {
-            quality = 0;
+            setQuality(0);
         }
-        quality = Math.min(quality, 50);
     }
 }

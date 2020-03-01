@@ -2,16 +2,24 @@ package com.gildedrose.items;
 
 public abstract class Item {
 
-    protected String name;
+    private String name;
 
-    protected int sellIn;
+    private int sellIn;
 
-    protected int quality;
+    private int quality;
 
     public Item(String name, int sellIn, int quality) {
         this.name = name;
         this.sellIn = sellIn;
         this.quality = quality;
+    }
+
+    public void setSellIn(int sellIn) {
+        this.sellIn = sellIn;
+    }
+
+    public void setQuality(int quality) {
+        this.quality = Math.min(quality, 50);
     }
 
     public String getName() {
@@ -26,7 +34,8 @@ public abstract class Item {
         return quality;
     }
 
-    public void updateInformation() { }
+    public void updateInformation() {
+    }
 
     protected boolean isOverdueItem() {
         return sellIn < 0;
